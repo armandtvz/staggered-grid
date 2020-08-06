@@ -585,7 +585,7 @@ function StaggeredGrid({
             setting = 'min-width';
         }
         const query = window.matchMedia(`(${setting}: ${grid.breakpoint}px)`);
-        query.addEventListener('change', pack);
+        query.addListener(pack);
         media_queries.push(query);
         grids.push(grid);
     }
