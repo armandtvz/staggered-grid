@@ -28,12 +28,12 @@ Quickstart
 ----------
 1. Include the JS before your closing `<body>` tag.
 ```html
-<script src="https://cdn.jsdelivr.net/gh/armandtvz/staggered-grid/dist/js/staggered_grid.min.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/gh/armandtvz/staggered-grid@1.0.0-beta/dist/js/staggered_grid.min.js" charset="utf-8"></script>
 ```
 
 1. Include the CSS.
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/armandtvz/staggered-grid/dist/css/staggered_grid.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/armandtvz/staggered-grid@1.0.0-beta/dist/css/staggered_grid.min.css">
 ```
 
 1. Initialize the `StaggeredGrid` object. See the [config options][100] heading
@@ -520,5 +520,5 @@ Check the root of the repo for these files.
 [4]: https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList
 [5]: https://caniuse.com/#feat=mdn-api_mediaquerylist
 
-[100]: /#config-options/
-[101]: /#animating-the-grid/
+[100]: #config-options
+[101]: #animating-the-grid
