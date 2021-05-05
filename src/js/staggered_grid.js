@@ -81,6 +81,7 @@ class GridConfigError extends Error
  */
 function Grid({
     grid_element = grid_utils.required_arg('grid_element'),
+    mirror_width_container = undefined,
 
     number_of_cols = 3,
     column_width = 300, // in px
@@ -249,10 +250,23 @@ function Grid({
             {
                 const grid_width = number_of_cols * column_width + (gutter * (number_of_cols - 1));
                 grid_element.style.width = `${grid_width}px`;
+                if (mirror_width_container)
+                {
+                    mirror_width_container.style.width = `${grid_width}px`;
+                    // Set the opacity to 1. If the element's opacity is
+                    // not set to 0 the position of the element will not
+                    // be correct. Only show the element when it is
+                    // correctly placed.
+                    mirror_width_container.style.opacity = '1';
+                }
             }
             else
             {
                 grid_element.style.width = '';
+                if (mirror_width_container)
+                {
+                    mirror_width_container.style.width = '';
+                }
             }
         }
 
@@ -485,6 +499,8 @@ function StaggeredGrid({
         },
     ],
     grid_id = 'staggered-grid',
+    mirror_width_container_id = '',
+
     set_width = true,
     set_height = true,
     min_width_media_queries = true,
@@ -508,6 +524,11 @@ function StaggeredGrid({
     const grids = [];
     const media_queries = [];
     const grid_element = document.getElementById(grid_id);
+    let mirror_width_container = undefined;
+    if (mirror_width_container_id)
+    {
+        mirror_width_container = document.getElementById(mirror_width_container_id);
+    }
     let first_pack = true;
 
     if (! grid_element)
@@ -537,6 +558,7 @@ function StaggeredGrid({
             const layout = layouts[i];
             let conf = {
                 grid_element: grid_element,
+                mirror_width_container: mirror_width_container,
                 set_width: set_width,
                 set_height: set_height,
                 animate: animate,

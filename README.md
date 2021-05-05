@@ -214,6 +214,23 @@ in the `GridCollection` otherwise an error will be thrown if there is a mismatch
 - rtl
 
 
+If you need to align another container with the grid
+----------------------------------------------------
+```html
+<div id="mirror-width-container" class="staggered-grid center" style="opacity: 0;">
+</div>
+```
+```javascript
+const grid = new StaggeredGrid({
+    // ...
+    mirror_width_container_id: 'mirror-width-container',
+});
+```
+The element in the example will have the same width as the staggered grid. If
+you use the `center` CSS class on the staggered grid, this element should also
+use it.
+
+
 Performance
 -----------
 - No resize listeners are used unless the grid is set to full width; a listener
@@ -496,6 +513,9 @@ Of course, this only really works when the grid is centered.
 
 Fixed width in pixels. Setting this will make the grid adjust the column width
 to fit to this value exactly.
+
+
+#### mirror_width_container_id
 
 
 
